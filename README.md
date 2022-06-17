@@ -24,6 +24,7 @@ As a user, I want to......
     Have a return to game options button
 
     Wireframes
-    ![](IMG_7977.jpeg)
-    ![](IMG_7978.jpeg)
-    ![](IMG_7979.jpeg)
+
+    ![](Image/IMG_7977.jpeg)
+    ![](Image/IMG_7978.jpeg)
+    ![](Image/IMG_7979.jpeg)
