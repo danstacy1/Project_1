@@ -18,9 +18,12 @@ As a user, I want to......
     If the cards do not match, flip them back over after a certain amount of time.(Perhaps have different levels of how quickly they turn back over.)
     Keep track of the cards that match.
     Remove the cards after they match.
-    
     Announce who won the game.
     Keep track of games won.
+    Have Start New Game button that allows you to play again with the same settings.
+    Have a return to game options button
 
-    IMG_7976.jpeg
-    IMG_7977.jpeg
+    Wireframes
+    ![](IMG_7977.jpeg)
+    ![](IMG_7978.jpeg)
+    ![](IMG_7979.jpeg)
