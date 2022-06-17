@@ -22,9 +22,14 @@ As a user, I want to......
     Keep track of games won.
     Have Start New Game button that allows you to play again with the same settings.
     Have a return to game options button
+    Play against a timer.
 
     Wireframes
 
-    ![](Image/IMG_7977.jpeg)
-    ![](Image/IMG_7978.jpeg)
-    ![](Image/IMG_7979.jpeg)
+    ![](Image/IMG_7980.jpeg)
+    ![](Image/IMG_7981.jpeg)
+    ![](Image/IMG_7982.jpeg)
+    ![](Image/IMG_7983.jpeg)
+    ![](Image/IMG_7984.jpeg)
+    ![](Image/IMG_7985.jpeg)
+    ![](Image/IMG_7986.jpeg)
