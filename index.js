@@ -10,5 +10,13 @@ const gameFlow = ["playerx", "playero", "playerx", "playerx", "playero", "player
 let gameWinner = false
 
 // call all the divs
-let gameBoard = document.getElementsByClassName('gameboard')
-let memorycard = document.getElementById('memory-card')
+let gameboard = document.getElementsByClassName('gameboard')
+let memorycard = document.getElementsByClassName('memory-card')
+
+// Create an addEventListener to flip each card. 
+const cards = document.querySelectorAll('.memorycard')
+
+function flipcard () {
+    this.classList.toggle('flip')
+}
+cards.forEach(card => card.addEventListener('click', flipcard))

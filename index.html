@@ -4,97 +4,120 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <title>Memory Card Game</title>
-</head>
-<body>
-  <h1>Memory Card Game</h1>
-<!-- These are the cards, both front and back. They are in pairs of two so that they match. -->
-    <div class="gameBoard">
-        <div class="memorycard">
-          <img class="front-face" src="" alt="React">
-          <img class="back-face" src="" alt="Memory Card">
-        </div>
-      
-        <div class="memorycard">
-          <img class="front-face" src="" alt="React">
-          <img class="back-face" src="" alt="Memory Card">
-        </div>
-      
-        <div class="memorycard">
-          <img class="front-face" src="" alt="Angular">
-          <img class="back-face" src="" alt="Memory Card">
-        </div>
-      
-        <div class="memorycard">
-          <img class="front-face" src="" alt="Angular">
-          <img class="back-face" src="" alt="Memory Card">
-        </div>
-      
-        <div class="memorycard">
-          <img class="front-face" src="" alt="Ember">
-          <img class="back-face" src="" alt="Memory Card">
-        </div>
-      
-        <div class="memorycard">
-          <img class="front-face" src="" alt="Ember">
-          <img class="back-face" src="" alt="Memory Card">
-        </div>
-      
-        <div class="memorycard">
-          <img class="front-face" src="" alt="Vue">
-          <img class="back-face" src="" alt="Memory Card">
-        </div>
-      
-        <div class="memorycard">
-          <img class="front-face" src="" alt="Vue">
-          <img class="back-face" src="" alt="Memory Card">
-        </div>
-      
-        <div class="memorycard">
-          <img class="front-face" src="" alt="Backbone">
-          <img class="back-face" src="" alt="Memory Card">
-        </div>
-      
-        <div class="memorycard">
-          <img class="front-face" src="" alt="Backbone">
-          <img class="back-face" src="" alt="Memory Card">
-        </div>
-      
-        <div class="memorycard">
-          <img class="front-face" src="" alt="Aurelia">
-          <img class="back-face" src="" alt="Memory Card">
-        </div>
-      
-        <div class="memorycard">
-          <img class="front-face" src="img/aurelia.svg" alt="Aurelia">
-          <img class="back-face" src="img/js-badge.svg" alt="Memory Card">
-        </div>
-      </div> --
-
-      <div class="restart"> 
-        <button id="restart">Restart Game</button>
-       </div>
-
-       <div class="return"> 
-        <button id="return">Return to Game Options</button>
-       </div>
+  </head>
+  <body>
+    <h1>Memory Card Game</h1>
     
-       <h2 id="playerturn">Player Turn</h2>
+    <!-- These are the cards, both front and back. They are in pairs of two so that they match. -->
+    <div class="gameboard">
+      <div class="gamecard">
+        <img class="front-face" src="" alt="React">
+        <img class="back-face" src="Planet-Earth-clipart.png" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="React">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Angular">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Angular">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Ember">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Ember">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Vue">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Vue">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Backbone">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Backbone">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Aurelia">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Aurelia">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
 
-       <h2 id="cardsmatched1">Player 1 Cards Matched</h2>
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Aurelia">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Aurelia">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
 
-       <h2 id="gameswon1">Player 1 Games Won</h2>
-
-       <h2 id="cardsmatched12">Player 1 Cards Matched</h2>
-
-       <h2 id="gameswon2">Player 1 Games Won</h2>
-
-       <h2 id="timer">Out of Time! You Lose</h2>
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Aurelia">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+      
+      <div class="gamecard">
+        <img class="front-face" src="" alt="Aurelia">
+        <img class="back-face" src="" alt="CardBack">
+      </div>
+    </div> 
     
-       <h1 id="winner"></h1>
-       
+    
+    
+    <!-- Display whose turn it is -->
+    <h2 id="playerturn">Player Turn</h2>
+    
+    <h2 id="cardsmatched1">Player 1 Cards Matched</h2>
+    
+    <h2 id="gameswon1">Player 1 Games Won</h2>
+    
+    <h2 id="cardsmatched12">Player 1 Cards Matched</h2>
+    
+    <h2 id="gameswon2">Player 1 Games Won</h2>
+    
+    <h2 id="timer">Out of Time! You Lose</h2>
+    
+    <h1 id="winner"></h1>
+    
+    <div class="restart"> 
+      <button id="restart">Restart Game</button>
+    </div>
+    
+    <div class="return"> 
+      <button id="return">Return to Game Options</button>
+    </div>
 
-</body>
-</html>
+    <script src="index.js" defer></script>
+  </body>
+  </html>
