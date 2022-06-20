@@ -11,10 +11,10 @@ let gameWinner = false
 
 // call all the divs
 let gameboard = document.getElementsByClassName('gameboard')
-let memorycard = document.getElementsByClassName('memory-card')
+let gamecard = document.getElementsByClassName('gamecard')
 
 // Create an addEventListener to flip each card. 
-const cards = document.querySelectorAll('.memorycard')
+const cards = document.querySelectorAll('.gamecard')
 
 function flipcard () {
     this.classList.toggle('flip')
