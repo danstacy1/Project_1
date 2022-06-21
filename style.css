@@ -38,6 +38,9 @@ h1 {
     transform: scale(1);
     transform-style: preserve-3d;
     transition: transform .5s;
+
+    background-color: transparent;
+
 }
 
 /* This make the card pop when I click */
@@ -47,7 +50,7 @@ h1 {
 }
 
 .front-face {
-    transform: rotateY(180deg);
+    transform: rotateX(180deg);
 }
 
 .front-face,
@@ -62,5 +65,5 @@ h1 {
 }
 
 .gamecard.flip {
-transform: rotateY(180deg); 
+transform: rotateX(180deg); 
 }
