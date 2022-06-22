@@ -22,15 +22,16 @@ let id = document.querySelectorAll('#id')
 
 
 // Create an addEventListener to flip each card. 
+// Create a function the prevents more than two cards being selected at a time.
 const cards = document.querySelectorAll('.gamecard')
 
 function flipcard () {
     this.classList.toggle('flip')
     if (gameWinner == false) {
-            firstCardFlipped === true
-        if (firstCardFlipped === true) {
-         secondCardFlipped === true
-    }       if (secondCardFlipped === true) {
+            firstCardFlipped === this
+        if (firstCardFlipped === this) {
+         secondCardFlipped === this
+    }       if (secondCardFlipped === this) {
                 checkForMatch()
 }
     }  
@@ -48,7 +49,10 @@ function checkForMatch() {
     }
 }
 
-// Create a function the prevents more than two cards being selected at a time.
+// check for a win
+// checkForWin () => {
+//     if (gamecard.data.1 ===)
+// }
 
 // Create a restart button to replay the game with the same options.
 restart.addEventListener('click', function (event) {
