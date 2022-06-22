@@ -30,10 +30,11 @@ function flipCard () {
     if (gameWinner == false) {
             firstCardFlipped = true
             console.log('one card flipped')
-    }   if (firstCardFlipped == true) {
-            flipSecondCard = true
+    }   else if (firstCardFlipped === true) {
+            secondCardFlipped = true
             if (secondCardFlipped === true) {
                 console.log ('two cards flipped')
+                // checkforWin()
                 checkForMatch()
             }
     }
