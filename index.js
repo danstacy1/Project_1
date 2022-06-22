@@ -20,7 +20,7 @@ let gamecard = document.getElementsByClassName('gamecard')
 // This is calling the data ID of the card pairs.
 let id = document.querySelectorAll('#id')
 
-
+console.log('testingtesting')
 // Create an addEventListener to flip each card. 
 // Create a function the prevents more than two cards being selected at a time.
 const cards = document.querySelectorAll('.gamecard')
