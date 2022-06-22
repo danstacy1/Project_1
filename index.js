@@ -25,28 +25,34 @@ let id = document.querySelectorAll('#id')
 // Create a function the prevents more than two cards being selected at a time.
 const cards = document.querySelectorAll('.gamecard')
 
-function flipcard () {
+function flipCard () {
     this.classList.toggle('flip')
     if (gameWinner == false) {
-            firstCardFlipped === this
-        if (firstCardFlipped === this) {
-         secondCardFlipped === this
-    }       if (secondCardFlipped === this) {
+            firstCardFlipped = true
+            console.log('one card flipped')
+    }   if (firstCardFlipped == true) {
+            flipSecondCard = true
+            if (secondCardFlipped === true) {
+                console.log ('two cards flipped')
                 checkForMatch()
+            }
+    }
 }
-    }  
-}
-cards.forEach(card => card.addEventListener('click', flipcard))
+cards.forEach(card => card.addEventListener('click', flipCard,{
+    once: true
+}))
+ 
 
 
 // Create a function that checks of a matching pair
 function checkForMatch() {
-    if (firstCardFlipped === true && secondCardFlipped === true) {
-        if (firstCardFlipped.gamecard.data === secondCardFlipped.gamecard.data) {
-            winner.innerText = 'You Won the Game!'
-            gameWinner = true
-        }
-    }
+    // if (firstCardFlipped === true && secondCardFlipped === true) {
+    //     if (firstCardFlipped.gamecard.data === secondCardFlipped.gamecard.data) {
+    //         console.log('match')
+            // winner.innerText = 'You Won the Game!'
+            // gameWinner = true
+    //     }
+    // }
 }
 
 // check for a win
