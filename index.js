@@ -1,6 +1,42 @@
 // call all the divs from HTML
-let gameboard = document.getElementsByClassName('gameboard')
-let gamecard = document.getElementsByClassName('gamecard')
+const gameboard = document.querySelector('#gameboard')
+
+// insert pictures to divs
+const pictures = [
+{
+    name: 'ball',
+    img: 'Image/ballpic.png',
+}, 
+{
+    name: 'chair',
+    img: 'Image/chairpic.jpeg',
+},
+{
+    name: 'flag',
+    img: 'Image/flagpic.jpeg',
+},
+{
+    name: 'hat',
+    img: 'Image/hatpic.png',
+},
+{
+    name: 'hotdog',
+    img: 'Image/hotdogpic.png',
+},
+{
+    name: 'pizza',
+    img: 'Image/pizzapic.jpeg',
+},
+{
+    name: 'umbrella',
+    img: 'Image/umbrellapic.png',
+},
+{
+    name: 'wood',
+    img: 'Image/woodpic.jpeg',
+}
+]
+// let gamecard = document.getElementsByClassName('gamecard')
 // This is calling the data ID of the card pairs.
 let id = document.querySelectorAll('#id')
 
@@ -16,11 +52,49 @@ let secondCardFlipped = false
 // This lets the game know whether to keep going or not.
 let gameWinner = false
 
+// trying to create cards in JS
+const makeGameCards = () => {
+    // create 16 cards
+    for (let i = 0; i < 16; i++) {
+        const card = document.createElement('img')
+        if (i > 7) {
+            // array index should be i - 8.
+            card.setAttribute('data-name', pictures[i-8].name)
+            card.setAttribute('src', pictures[i-8].img)
+        } else {
+            card.setAttribute('data-name', pictures[i].name)
+            card.setAttribute('src', pictures[i].img)
 
+        }
+        card.setAttribute('data-id', i)
+        card.addEventListener('click', flipCard)
+        console.log('the card created', card)
+        gameboard.appendChild(card)
+        // create a div for every card
+        const gamecard = document.createElement('div')
+        // add the class of gamecards to our new divs
+        gamecard.classList.add('gamecard-back-face')
+        // gamecard.classList.add('gamecard')
+        // now we want to add this ^^^^ to the gameboard
+        gameboard.appendChild(gamecard)
+        // make them into a grid
+    
+        // add pictures to the divs
 
+        // add event listener to the each card
+        gamecard.addEventListener('click', flipCard)
+    }
+}
+
+// add an event listener that will listen for 
+document.addEventListener("DOMContentLoaded", () => {
+    // now we need to call the makePalette function
+    makeGameCards()
+})
 
 // Create an addEventListener to flip each card. 
 // Create a function the prevents more than two cards being selected at a time.
+
 const cards = document.querySelectorAll('.gamecard')
 
 function flipCard () {
