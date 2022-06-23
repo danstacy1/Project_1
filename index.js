@@ -13,43 +13,50 @@ let gameWinner = false
 const pictures = [
     {
         name: 'ball',
-        img: 'Image/ballpic.png',
+        imgFace: 'Image/ballpic.png',
+        imgBack: 'Image/cardpic.jpeg',
     }, 
     {
         name: 'chair',
-        img: 'Image/chairpic.jpeg',
+        imgFace: 'Image/chairpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg',
     },
     {
         name: 'flag',
-        img: 'Image/flagpic.jpeg',
+        imgFace: 'Image/flagpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg',
     },
     {
         name: 'hat',
-        img: 'Image/hatpic.png',
+        imgFace: 'Image/hatpic.png',
+        imgBack: 'Image/cardpic.jpeg',
     },
     {
         name: 'hotdog',
-        img: 'Image/hotdogpic.png',
+        imgFace: 'Image/hotdogpic.png',
+        imgBack: 'Image/cardpic.jpeg',
     },
     {
         name: 'pizza',
-        img: 'Image/pizzapic.jpeg',
+        imgFace: 'Image/pizzapic.jpeg',
+        imgBack: 'Image/cardpic.jpeg',
     },
     {
         name: 'umbrella',
-        img: 'Image/umbrellapic.png',
+        imgFace: 'Image/umbrellapic.png',
+        imgBack: 'Image/cardpic.jpeg',
     },
     {
         name: 'wood',
-        img: 'Image/woodpic.jpeg',
+        imgFace: 'Image/woodpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg',
     }]
     
-'Image/cardpic.jpeg'
     // call all the divs from HTML
     const gameboard = document.querySelector('#gameboard')
     
     // Make 16 divs to represent the cards.
-    const makeCards = () => {
+    const makeGameCards = () => {
         // create 16 cards
         for (let i = 0; i < 16; i++) {
             const face = document.createElement('img')
@@ -59,10 +66,10 @@ const pictures = [
             if (i > 7) {
                 // array index should be i - 8.
                 face.setAttribute('data-name', pictures[i-8].name)
-                face.setAttribute('src', pictures[i-8].img)
+                face.setAttribute('src', pictures[i-8].imgFace)
             } else {
                 face.setAttribute('data-name', pictures[i].name)
-                face.setAttribute('src', pictures[i].img)
+                face.setAttribute('src', pictures[i].imgFace)
             }
             face.setAttribute('data-id', i)
             face.addEventListener('click', flipCard)
@@ -72,8 +79,8 @@ const pictures = [
     }
     // add an event listener that will listen for 
     document.addEventListener("DOMContentLoaded", () => {
-        // now we need to call the makeCards function
-        makeCards()
+        // now we need to call the makeGameCards function
+        makeGameCards()
     })
     
 // Create an addEventListener to flip each card. 
