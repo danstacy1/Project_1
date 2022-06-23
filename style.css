@@ -7,6 +7,7 @@
 body {
     color: white;
     background-color: rgb(225, 117, 117);
+    text-align: center;
     /* background-image:  */
 }
 
@@ -21,8 +22,9 @@ h1 {
 #gameboard {
     display: grid;
     grid-template-columns: repeat(4, auto);
-    /* grid-template-rows: repeat(4, auto); */
+    grid-template-rows: repeat(4, auto);
     gap: 10px;
+    margin: auto;
     justify-content: center;
     position: relative;
     max-width: 750px;
@@ -42,16 +44,16 @@ h1 {
 } 
 
 /* This makes the card pop when I click */
-/* .gamecard:active {
+.card:active {
     transform: scale(0.97);
     transition: transform .2s;
-} */
+}
 
-/* .gamecard-front-face {
+/* .card-face {
     transform: rotateX(180deg);
 } */
 
-.card-back-face {
+.card-back {
     width: 20%;
     height: 20%;
     position: absolute;
@@ -62,12 +64,12 @@ h1 {
     transform-style: preserve-3d;
 }
 
-/* .gamecard.flip {
+/* .card.flip {
 transform: rotateX(180deg); 
 transform-style: preserve-3d;
 } */
 
 #restart {
-    display flex
+    margin: 20px;
     /* margin-top: 1000px; */
 }
