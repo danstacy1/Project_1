@@ -44,38 +44,36 @@ const pictures = [
         img: 'Image/woodpic.jpeg',
     }]
     
+'Image/cardpic.jpeg'
     // call all the divs from HTML
     const gameboard = document.querySelector('#gameboard')
     
     // Make 16 divs to represent the cards.
-    const makeGameCards = () => {
+    const makeCards = () => {
         // create 16 cards
         for (let i = 0; i < 16; i++) {
-            const card = document.createElement('div')
             const face = document.createElement('img')
-            const back = document.createElement('div')
-            card.classList = 'card'
             face.classList = 'face'
+            const back = document.createElement('img')
             back.classList = 'back'
             if (i > 7) {
                 // array index should be i - 8.
                 face.setAttribute('data-name', pictures[i-8].name)
                 face.setAttribute('src', pictures[i-8].img)
-                // back.setAttribute('src' Image/cardpic.jpeg)
             } else {
                 face.setAttribute('data-name', pictures[i].name)
                 face.setAttribute('src', pictures[i].img)
             }
             face.setAttribute('data-id', i)
-            face.addEventListener('click', flipCard, {once: true})
+            face.addEventListener('click', flipCard)
             console.log('the card created', face)
             gameboard.appendChild(face)
         }
     }
     // add an event listener that will listen for 
     document.addEventListener("DOMContentLoaded", () => {
-        // now we need to call the makeGameCards function
-        makeGameCards()
+        // now we need to call the makeCards function
+        makeCards()
     })
     
 // Create an addEventListener to flip each card. 
@@ -128,6 +126,7 @@ function checkForMatch() {
     console.log('sc', secondCardPicked)
     const scName = secondCardPicked.dataset.name
     if (fcName === scName) {
+        face.target.removeEventListener('click', flipCard)
         console.log('its a match')
     } else {
         firstCardPicked = null
