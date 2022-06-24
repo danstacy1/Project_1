@@ -8,8 +8,9 @@ let firstCardPicked = null
 let secondCardPicked = null
 // This lets the game know whether to keep going or not.
 let gameWinner = false
-
+let pairsRemaining = 8
 // insert pictures to divs
+// pictures[0].imgFace
 const pictures = [
     {
         name: 'ball',
@@ -142,36 +143,37 @@ const pictures = [
 // 3. if one card is already selected, assign event target to the second card. 
 // const card = document.querySelectorAll('.img')
 document.querySelectorAll('face')
-face.setAttribute('data-name', pictures[i].name)
-face.setAttribute('src', pictures[i].imgFace)
+
 
 function flipCard (e) {
-    console.log('this is the event', e)
+    // console.log('this is the event', e)
     const theCard = e.target
-    console.log('this is the card', theCard)
+    // console.log('this is the card', theCard)
     const cardName = theCard.dataset.name
-    console.log('this is cardname', cardName)
-    // const imgFace = pictures.imgFace
-    // const face = getElementByClass('face')
+    // console.log('this is cardname', cardName)
+    const cardIndex = theCard.dataset.id
     if (gameWinner == false && !firstCardPicked) {
         firstCardPicked = theCard
-        console.log('one card selected')
-        // this.classList.toggle('face')
-        // face.setAttribute('data-name', pictures[i].name)
-        // face.setAttribute('src', pictures[i].imgFace)
-        this.setAttribute('src', pictures[theCard], 'face')
-        console.log(e.target.imgFace)
+        console.log('one card selected', firstCardPicked)
+        const cardOneIndex = firstCardPicked.dataset.id
+        firstCardPicked.setAttribute('src', pictures[cardOneIndex].imgFace)
+        // console.log(e.target.imgFace)
     }   else if (firstCardPicked !== null && !secondCardPicked) {
         secondCardPicked = theCard
-        console.log('second card selected', secondCardPicked)
-        this.setAttribute('src', pictures[theCard], 'face')
+        // console.log('second card selected', secondCardPicked)
+        const cardTwoIndex = secondCardPicked.dataset.id
+        secondCardPicked.setAttribute('src', pictures[cardTwoIndex].imgFace)
+    }    
+        if (cardIndex === cardTwoIndex) {
+            alert('You cannot choose the same card twice, TRY AGAIN!')
+            resetCards()
+        }
         if (secondCardPicked !== null) {
-            console.log ('two cards flipped')
-            // checkforWin()
+            // console.log ('two cards flipped')
             checkForMatch()
         }
     }
-}
+
 // card.forEach(theCard => theCard.addEventListener('click', flipCard))
 
 
@@ -186,17 +188,41 @@ function flipCard (e) {
  
 function checkForMatch() {
     const fcName = firstCardPicked.dataset.name
-    console.log('fc', firstCardPicked.dataset)
+    // console.log('fc', firstCardPicked.dataset)
     const scName = secondCardPicked.dataset.name
-    console.log('sc', secondCardPicked)
+    // console.log('sc', secondCardPicked)
     if (fcName === scName) {
-        // this.target.removeEventListener('click', flipCard)
-        console.log('its a match')
-    } else {
+        // e.target.removeEventListener('click', flipCard)
+        // console.log('its a match')
+        const match = firstCardPicked.dataset.name && secondCardPicked.dataset.name
+        // e.fcName.removeEventListener('click', flipCard)
+        console.log(match)
+        pairsRemaining -= 1
         firstCardPicked = null
         secondCardPicked = null
-        console.log('not a match')
+        setTimeout(checkForWin, 200)
+    } else {
+        setTimeout(resetCards, 1200)
+        // console.log('not a match')
     } 
+}
+
+function resetCards() {
+    const cardOneIndex = firstCardPicked.dataset.id
+    firstCardPicked.setAttribute('src', pictures[cardOneIndex].imgBack)
+    const cardTwoIndex = secondCardPicked.dataset.id
+    secondCardPicked.setAttribute('src', pictures[cardTwoIndex].imgBack)
+    firstCardPicked = null
+    secondCardPicked = null
+}
+
+// check for a win
+function checkForWin() {
+    if (pairsRemaining === 0) {
+        gameWinner == true
+        // back.removeEventListener('click', flipCard)
+        alert('You Won! Restart game to play again.')
+    }
 }
 
 // Create a restart button to replay the game with the same options.
