@@ -1,3 +1,10 @@
+// add an event listener that will listen for 
+document.addEventListener("DOMContentLoaded", () => {
+    // now we need to call the makeCards function
+    makeCards()
+    shuffleCards()
+    timer()
+})
 
 // This will keep track of whose turn it is.
 let playerTurn = true
@@ -9,88 +16,93 @@ let secondCardPicked = null
 // This lets the game know whether to keep going or not.
 let gameWinner = false
 let pairsRemaining = 8
+
 // insert pictures to divs
 // pictures[0].imgFace
 const pictures = [
     {
         name: 'ball',
         imgFace: 'Image/ballpic.png',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
+        
     }, 
     {
         name: 'chair',
         imgFace: 'Image/chairpic.jpeg',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
+        
     },
     {
         name: 'flag',
         imgFace: 'Image/flagpic.jpeg',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
+        
     },
     {
         name: 'hat',
         imgFace: 'Image/hatpic.png', 
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
+        
     },
     {
         name: 'hotdog',
         imgFace: 'Image/hotdogpic.png',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
     },
     {
         name: 'pizza',
         imgFace: 'Image/pizzapic.jpeg',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
     },
     {
         name: 'umbrella',
         imgFace: 'Image/umbrellapic.png',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
     },
     {
         name: 'wood',
         imgFace: 'Image/woodpic.jpeg',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
     },
     {
         name: 'ball',
         imgFace: 'Image/ballpic.png',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
     }, 
     {
         name: 'chair',
         imgFace: 'Image/chairpic.jpeg',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
     },
     {
         name: 'flag',
         imgFace: 'Image/flagpic.jpeg',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
     },
     {
         name: 'hat',
         imgFace: 'Image/hatpic.png',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
     },
     {
         name: 'hotdog',
         imgFace: 'Image/hotdogpic.png',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
     },
     {
         name: 'pizza',
         imgFace: 'Image/pizzapic.jpeg',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
     },
     {
         name: 'umbrella',
         imgFace: 'Image/umbrellapic.png',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
     },
     {
         name: 'wood',
         imgFace: 'Image/woodpic.jpeg',
-        imgBack: 'Image/cardpic.jpeg',
+        imgBack: 'Image/cardpic.jpeg'
     }
 ]
     
@@ -107,10 +119,6 @@ const pictures = [
             back.classList = 'back'
             const face = document.createElement('img')
             face.classList = 'face'
-            // face.setAttribute('data-name', pictures[i].name)
-            // face.setAttribute('src', pictures[i].imgFace)
-            // face.style.display = 'none'
-            // face.setAttribute('src', pictures[i].imgFace)
             if (i > 7) {
                 // array index should be i - 8.
                 back.setAttribute('data-name', pictures[i-8].name)
@@ -120,18 +128,15 @@ const pictures = [
                 back.setAttribute('src', pictures[i].imgBack)
             }
             back.setAttribute('data-id', i)
+            card.setAttribute('data-matched', false)
+            card.setAttribute('clickable', true)
             back.addEventListener('click', flipCard)
-            console.log('the card created', back)
+            console.log('the card created', card)
             gameboard.appendChild(card)
             card.appendChild(face)
             card.appendChild(back)
         }
     }
-    // add an event listener that will listen for 
-    document.addEventListener("DOMContentLoaded", () => {
-        // now we need to call the makeCards function
-        makeCards()
-    })
     
 // Create an addEventListener to flip each card. 
 // Create a function the prevents more than two cards being selected at a time.
@@ -148,34 +153,41 @@ document.querySelectorAll('face')
 function flipCard (e) {
     // console.log('this is the event', e)
     const theCard = e.target
-    // console.log('this is the card', theCard)
+    console.log('this is the card', theCard)
     const cardName = theCard.dataset.name
-    // console.log('this is cardname', cardName)
-    const cardIndex = theCard.dataset.id
-    if (gameWinner == false && !firstCardPicked) {
-        firstCardPicked = theCard
-        console.log('one card selected', firstCardPicked)
-        const cardOneIndex = firstCardPicked.dataset.id
-        firstCardPicked.setAttribute('src', pictures[cardOneIndex].imgFace)
-        // console.log(e.target.imgFace)
-    }   else if (firstCardPicked !== null && !secondCardPicked) {
-        secondCardPicked = theCard
-        // console.log('second card selected', secondCardPicked)
-        const cardTwoIndex = secondCardPicked.dataset.id
-        secondCardPicked.setAttribute('src', pictures[cardTwoIndex].imgFace)
-    }    
-        if (cardIndex === cardTwoIndex) {
-            alert('You cannot choose the same card twice, TRY AGAIN!')
-            resetCards()
-        }
-        if (secondCardPicked !== null) {
-            // console.log ('two cards flipped')
-            checkForMatch()
-        }
+    const matched = theCard.dataset.matched == 'true' ? true : false
+    console.log('this is matched', matched)
+    const clickable = theCard.dataset.clickable == 'false' ? false : true
+    console.log('am I clickable', clickable)
+    if (!matched && clickable === true) {
+
+        if (gameWinner == false && !firstCardPicked) {
+            firstCardPicked = theCard
+            console.log('one card selected', firstCardPicked)
+            const cardOneIndex = firstCardPicked.dataset.id
+            firstCardPicked.setAttribute('src', pictures[cardOneIndex].imgFace)
+            firstCardPicked.dataset.clickable = false
+            span.innerText = ''
+            
+            // console.log(e.target.imgFace)
+        }   else if (firstCardPicked !== null && !secondCardPicked) {
+            secondCardPicked = theCard
+            // console.log('second card selected', secondCardPicked)
+            const cardTwoIndex = secondCardPicked.dataset.id
+            secondCardPicked.setAttribute('src', pictures[cardTwoIndex].imgFace)
+            secondCardPicked.dataset.clickable = false
+            span.innerText = ''
+        }    
+        
+            if (secondCardPicked !== null) {
+                 // console.log ('two cards flipped')
+                checkForMatch()
+            }
+    } else {
+        span.innerText = 'I\'ve Already Been Picked Try Another Card'
+        console.log('try another card')
     }
-
-// card.forEach(theCard => theCard.addEventListener('click', flipCard))
-
+}
 
 // Create a function that checks of a matching pair
 
@@ -192,17 +204,19 @@ function checkForMatch() {
     const scName = secondCardPicked.dataset.name
     // console.log('sc', secondCardPicked)
     if (fcName === scName) {
-        // e.target.removeEventListener('click', flipCard)
+        firstCardPicked.dataset.matched = true
+        secondCardPicked.dataset.matched = true
+        span.innerText = 'Match!'
         // console.log('its a match')
-        const match = firstCardPicked.dataset.name && secondCardPicked.dataset.name
-        // e.fcName.removeEventListener('click', flipCard)
-        console.log(match)
         pairsRemaining -= 1
         firstCardPicked = null
         secondCardPicked = null
         setTimeout(checkForWin, 200)
     } else {
         setTimeout(resetCards, 1200)
+        firstCardPicked.dataset.clickable = true
+        secondCardPicked.dataset.clickable = true
+        span.innerText = 'Try Again!'
         // console.log('not a match')
     } 
 }
@@ -220,10 +234,55 @@ function resetCards() {
 function checkForWin() {
     if (pairsRemaining === 0) {
         gameWinner == true
-        // back.removeEventListener('click', flipCard)
-        alert('You Won! Restart game to play again.')
+        winner.innerText = 'You Won the Game'
     }
 }
+
+// function shuffle() {
+//     let pictures = document.querySelectorAll('pictures')
+//     pictures.forEach(picture => {
+//       let randomPos = Math.floor(Math.random() * 16);
+//       card.style.order = randomPos;
+//     });
+//   }
+
+const shuffleCards = () => {
+    for (let i = pictures.length - 1; i >= 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = pictures[i];
+    pictures[i] = pictures[j];
+    pictures[j] = temp;
+    }
+    pictures.forEach((element, name) => {
+		// remove classes except card
+		element.classList = 'card';
+	})
+	// empty arrays to store classes and textContent
+	// let classTest = [];
+	// let textTest = [];
+
+	// classTest = pictures.map(item => item.cardClass)
+	// textTest = pictures.map(item => item.cardText)
+	// loop through cards to add classes and value of shuffled cards
+	// add classes: animal and purple
+	// classTest.map((item, i) => {
+	// 	cards[i].classList.add(item)
+	// 	cards[i].classList.add('purple')
+	// 	return cards;
+	// })
+	// textTest.map((item, i) => cards[i].childNodes[1].childNodes[3].textContent = item)
+}
+
+function timer() {
+    let i = 00;
+    let timer = setInterval(function() {
+        document.getElementById('timer').innerText = '00:' + i;
+        i++;
+        if (sec > 60) {
+            clearInterval(timer);
+        }
+    }, 10000); //roughly 1 minute
+  }
 
 // Create a restart button to replay the game with the same options.
 restart.addEventListener('click', function (event) {
