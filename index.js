@@ -113,23 +113,20 @@ const pictures = [
     const makeCards = () => {
         // create 16 cards
         for (let i = 0; i < 16; i++) {
-            const card = document.createElement('div')
-            card.classList = 'card'
             const back = document.createElement('img')
             back.classList = 'back'
+            back.setAttribute('data-name', pictures[i].name)
+            back.setAttribute('src', pictures[i].imgBack)
+            back.setAttribute('data-id', i)
+            const card = document.createElement('div')
+            card.classList = 'card'
             const face = document.createElement('img')
             face.classList = 'face'
-            if (i > 7) {
-                // array index should be i - 8.
-                back.setAttribute('data-name', pictures[i-8].name)
-                back.setAttribute('src', pictures[i-8].imgBack)
-            } else {
-                back.setAttribute('data-name', pictures[i].name)
-                back.setAttribute('src', pictures[i].imgBack)
-            }
-            back.setAttribute('data-id', i)
+    
             card.setAttribute('data-matched', false)
             card.setAttribute('clickable', true)
+            face.setAttribute('data-name', pictures[i].name)
+            
             back.addEventListener('click', flipCard)
             console.log('the card created', card)
             gameboard.appendChild(card)
@@ -166,6 +163,7 @@ function flipCard (e) {
             console.log('one card selected', firstCardPicked)
             const cardOneIndex = firstCardPicked.dataset.id
             firstCardPicked.setAttribute('src', pictures[cardOneIndex].imgFace)
+            firstCardPicked.setAttribute('data-name', pictures[cardOneIndex].name)
             firstCardPicked.dataset.clickable = false
             span.innerText = ''
             
@@ -175,6 +173,7 @@ function flipCard (e) {
             // console.log('second card selected', secondCardPicked)
             const cardTwoIndex = secondCardPicked.dataset.id
             secondCardPicked.setAttribute('src', pictures[cardTwoIndex].imgFace)
+            secondCardPicked.setAttribute('data-name', pictures[cardTwoIndex].name)
             secondCardPicked.dataset.clickable = false
             span.innerText = ''
         }    
@@ -201,7 +200,11 @@ function flipCard (e) {
 function checkForMatch() {
     const fcName = firstCardPicked.dataset.name
     // console.log('fc', firstCardPicked.dataset)
+    console.log(fcName)
+    console.log(firstCardPicked.dataset.name)
     const scName = secondCardPicked.dataset.name
+    console.log(scName)
+    console.log(secondCardPicked.dataset.name)
     // console.log('sc', secondCardPicked)
     if (fcName === scName) {
         firstCardPicked.dataset.matched = true
@@ -213,7 +216,7 @@ function checkForMatch() {
         secondCardPicked = null
         setTimeout(checkForWin, 200)
     } else {
-        setTimeout(resetCards, 1200)
+        setTimeout(resetCards, 1000)
         firstCardPicked.dataset.clickable = true
         secondCardPicked.dataset.clickable = true
         span.innerText = 'Try Again!'
@@ -235,16 +238,9 @@ function checkForWin() {
     if (pairsRemaining === 0) {
         gameWinner == true
         winner.innerText = 'You Won the Game'
+
     }
 }
-
-// function shuffle() {
-//     let pictures = document.querySelectorAll('pictures')
-//     pictures.forEach(picture => {
-//       let randomPos = Math.floor(Math.random() * 16);
-//       card.style.order = randomPos;
-//     });
-//   }
 
 const shuffleCards = () => {
     for (let i = pictures.length - 1; i >= 0; i--) {
@@ -253,10 +249,12 @@ const shuffleCards = () => {
     pictures[i] = pictures[j];
     pictures[j] = temp;
     }
-    pictures.forEach((element, name) => {
+    pictures.forEach((element, index) => {
 		// remove classes except card
 		element.classList = 'card';
 	})
+}
+
 	// empty arrays to store classes and textContent
 	// let classTest = [];
 	// let textTest = [];
@@ -271,17 +269,17 @@ const shuffleCards = () => {
 	// 	return cards;
 	// })
 	// textTest.map((item, i) => cards[i].childNodes[1].childNodes[3].textContent = item)
-}
+
 
 function timer() {
     let i = 00;
     let timer = setInterval(function() {
-        document.getElementById('timer').innerText = '00:' + i;
+        document.getElementById('timer').innerText = 'Timer ' + i;
         i++;
-        if (sec > 60) {
+        if (pairsRemaining === 0) {
             clearInterval(timer);
         }
-    }, 10000); //roughly 1 minute
+    }, 1000); //roughly 1 minute
   }
 
 // Create a restart button to replay the game with the same options.
