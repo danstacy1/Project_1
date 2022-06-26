@@ -9,6 +9,7 @@ body {
     /* background-color: rgb(225, 117, 117); */
     text-align: center;
     background-image: url('Image/WorldMap.jpeg');
+    background-size: auto;
 }
 
 h1 {

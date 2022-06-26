@@ -21,88 +21,92 @@ let pairsRemaining = 8
 // pictures[0].imgFace
 const pictures = [
     {
-        name: 'ball',
-        imgFace: 'Image/ballpic.png',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'Australia',
+        imgFace: 'Image/Australiapic.png',
+        imgBack: 'Image/Planet-Earth-clipart.png'
         
     }, 
     {
-        name: 'chair',
-        imgFace: 'Image/chairpic.jpeg',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'Brazil',
+        imgFace: 'Image/Brazilpic.png',
+        imgBack: 'Image/Planet-Earth-clipart.png'
         
     },
     {
-        name: 'flag',
-        imgFace: 'Image/flagpic.jpeg',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'Canada',
+        imgFace: 'Image/Canadapic.png',
+        imgBack: 'Image/Planet-Earth-clipart.png'
         
     },
     {
-        name: 'hat',
-        imgFace: 'Image/hatpic.png', 
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'France',
+        imgFace: 'Image/Francepic.png', 
+        imgBack: 'Image/Planet-Earth-clipart.png'
         
     },
     {
-        name: 'hotdog',
-        imgFace: 'Image/hotdogpic.png',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'Jamaica',
+        imgFace: 'Image/Jamaicapic.jpeg',
+        imgBack: 'Image/Planet-Earth-clipart.png'
     },
     {
-        name: 'pizza',
-        imgFace: 'Image/pizzapic.jpeg',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'Japan',
+        imgFace: 'Image/Japanpic.png',
+        imgBack: 'Image/Planet-Earth-clipart.png'
     },
     {
-        name: 'umbrella',
-        imgFace: 'Image/umbrellapic.png',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'Nigeria',
+        imgFace: 'Image/Nigeriapic.png',
+        imgBack: 'Image/Planet-Earth-clipart.png'
     },
     {
-        name: 'wood',
-        imgFace: 'Image/woodpic.jpeg',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'USA',
+        imgFace: 'Image/usapic.png',
+        imgBack: 'Image/Planet-Earth-clipart.png'
     },
     {
-        name: 'ball',
-        imgFace: 'Image/ballpic.png',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'Australia',
+        imgFace: 'Image/Australiapic.png',
+        imgBack: 'Image/Planet-Earth-clipart.png'
+        
     }, 
     {
-        name: 'chair',
-        imgFace: 'Image/chairpic.jpeg',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'Brazil',
+        imgFace: 'Image/Brazilpic.png',
+        imgBack: 'Image/Planet-Earth-clipart.png'
+        
     },
     {
-        name: 'flag',
-        imgFace: 'Image/flagpic.jpeg',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'Canada',
+        imgFace: 'Image/Canadapic.png',
+        imgBack: 'Image/Planet-Earth-clipart.png'
+        
     },
     {
-        name: 'hat',
-        imgFace: 'Image/hatpic.png',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'France',
+        imgFace: 'Image/Francepic.png', 
+        imgBack: 'Image/Planet-Earth-clipart.png'
+        
     },
     {
-        name: 'hotdog',
-        imgFace: 'Image/hotdogpic.png',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'Jamaica',
+        imgFace: 'Image/Jamaicapic.jpeg',
+        imgBack: 'Image/Planet-Earth-clipart.png'
     },
     {
-        name: 'pizza',
-        imgFace: 'Image/pizzapic.jpeg',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'Japan',
+        imgFace: 'Image/Japanpic.png',
+        imgBack: 'Image/Planet-Earth-clipart.png'
     },
     {
-        name: 'umbrella',
-        imgFace: 'Image/umbrellapic.png',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'Nigeria',
+        imgFace: 'Image/Nigeriapic.png',
+        imgBack: 'Image/Planet-Earth-clipart.png'
     },
     {
-        name: 'wood',
-        imgFace: 'Image/woodpic.jpeg',
-        imgBack: 'Image/cardpic.jpeg'
+        name: 'USA',
+        imgFace: 'Image/usapic.png',
+        imgBack: 'Image/Planet-Earth-clipart.png'
     }
 ]
     
